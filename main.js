@@ -21,3 +21,36 @@ window.addEventListener('scroll', () => {
     cloud3.style.marginLeft = value * -1 + 'px';
     cloud4.style.marginLeft = value * -1 + 'px';
 })
+
+let slides;
+let totalSlides;
+let currentIndex = 0;
+
+function moveSlider(direction) {
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    updateSliderClasses();
+}
+
+function updateSliderClasses() {
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'prev', 'next');
+
+        const position = (index - currentIndex + totalSlides) % totalSlides;
+
+        if (position === 0) slide.classList.add('active');
+        else if (position === 1) slide.classList.add('next');
+        else if (position === totalSlides - 1) slide.classList.add('prev');
+    });
+
+    const activeSlide = document.querySelector('.slide-item.active');
+    document.getElementById('dragon-specie').textContent = activeSlide.dataset.name;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    slides = Array.from(document.querySelectorAll('.slide-item'));
+    totalSlides = slides.length;
+    updateSliderClasses();
+
+    document.querySelector('.click-left').onclick = () => moveSlider(-1);
+    document.querySelector('.click-right').onclick = () => moveSlider(1);
+});
