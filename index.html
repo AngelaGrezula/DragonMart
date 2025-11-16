@@ -1,42 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hogwarts Admissions Portal</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAD</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="home text-center">
 
-<!-- Main content -->
-<div id="main-content" class="fade-in">
-  <div class="container py-5">
-    <img src="images/hogwarts-logo.png" class="logo mb-4" alt="Hogwarts Logo">
-    <h1 class="display-5 text-warning floating-title">Welcome to Hogwarts Admissions Portal</h1>
-    <p class="lead mt-3">Take the magical quiz to discover your house and enroll at Hogwarts!</p>
-    <a href="quiz.html" class="btn btn-warning mt-4 px-4 py-2">✨ Take the Quiz ✨</a>
-  </div>
-</div>
+<body>
 
-<!-- Floating stars background -->
-<script>
-for (let i = 0; i < 60; i++) {
-  const star = document.createElement("div");
-  star.classList.add("stars");
-  star.style.top = Math.random() * 100 + "%";
-  star.style.left = Math.random() * 100 + "%";
-  star.style.animationDuration = 1 + Math.random() * 2 + "s";
-  document.body.appendChild(star);
-}
+    <header>
+        <h2 class="logo">Logo</h2>
+        <nav class="navigation">
+            <a href="" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="">Shop</a>
+            <a href="">Contact</a>
+        </nav>
+    </header>
 
-// Trigger fade-in effect
-window.addEventListener("DOMContentLoaded", ()=>{
-  const main = document.getElementById("main-content");
-  main.classList.add("fade-in-visible");
-});
-</script>
+    <section class="parallax">
+        <img src="assets/bg.png" id="bg">
+        <img src="assets/moon.png" id="moon">
+        <h2 id="text">Dragon <br> Training</h2>
+        <img src="assets/dragon-s.png" id="dragon-s">
+        <img src="assets/mountain.png" id="mountain">
+        <img src="assets/cloud1.png" id="cloud1">
+        <img src="assets/cloud2.png" id="cloud2">
+        <img src="assets/cloud3.png" id="cloud3">
+        <img src="assets/cloud4.png" id="cloud4">
+        <img src="assets/dragon-l.png" id="dragon-l">
+    </section>
+
+    <section class="sec">
+        <h2>About</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint porro rem in quo dolore fuga, inventore perferendis dignissimos doloremque, numquam, 
+            at illum modi magni consectetur reiciendis deleniti qui esse delectus exercitationem molestiae? Iure temporibus, aperiam ab cupiditate aut aspernatur dolore doloremque tempora libero eum consectetur consequuntur, 
+            neque unde ex hic dolor recusandae possimus repudiandae incidunt labore perferendis et quas? Voluptate neque dicta quibusdam sunt maiores reprehenderit ullam eligendi natus, consequuntur fuga atque ea repellat eum perspiciatis quidem nihil dolores illum autem animi veniam pariatur 
+            expedita iste? Aperiam iusto, minima rem vitae nisi pariatur commodi, corporis ipsa, maiores debitis dignissimos praesentium minus corrupti voluptatum possimus sit optio alias voluptate eveniet saepe hic quo enim. Voluptas rerum sint, at natus soluta sapiente aspernatur, 
+            libero quas hic obcaecati vel, exercitationem ipsa iste eum. <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint porro rem in quo dolore fuga, inventore perferendis dignissimos doloremque, numquam, 
+            at illum modi magni consectetur reiciendis deleniti qui esse delectus exercitationem molestiae? Iure temporibus, aperiam ab cupiditate aut aspernatur dolore doloremque tempora libero eum consectetur consequuntur, 
+            neque unde ex hic dolor recusandae possimus repudiandae incidunt labore perferendis et quas? Voluptate neque dicta quibusdam sunt maiores reprehenderit ullam eligendi natus, consequuntur fuga atque ea repellat eum perspiciatis quidem nihil dolores illum autem animi veniam pariatur 
+            expedita iste? Aperiam iusto, minima rem vitae nisi pariatur commodi, corporis ipsa, maiores debitis dignissimos praesentium minus corrupti voluptatum possimus sit optio alias voluptate eveniet saepe hic quo enim. Voluptas rerum sint, at natus soluta sapiente aspernatur, 
+            libero quas hic obcaecati vel, exercitationem ipsa iste eum. <br><br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint porro rem in quo dolore fuga, inventore perferendis dignissimos doloremque, numquam, 
+            at illum modi magni consectetur reiciendis deleniti qui esse delectus exercitationem molestiae? Iure temporibus, aperiam ab cupiditate aut aspernatur dolore doloremque tempora libero eum consectetur consequuntur, 
+            neque unde ex hic dolor recusandae possimus repudiandae incidunt labore perferendis et quas? Voluptate neque dicta quibusdam sunt maiores reprehenderit ullam eligendi natus, consequuntur fuga atque ea repellat eum perspiciatis quidem nihil dolores illum autem animi veniam pariatur 
+            expedita iste? Aperiam iusto, minima rem vitae nisi pariatur commodi, corporis ipsa, maiores debitis dignissimos praesentium minus corrupti voluptatum possimus sit optio alias voluptate eveniet saepe hic quo enim. Voluptas rerum sint, at natus soluta sapiente aspernatur, 
+            libero quas hic obcaecati vel, exercitationem ipsa iste eum. <br><br>
+        </p>
+    </section>
+
+    <section class="dragons-list">
+        <h2 style="text-align: center;">Dragon's List</h2>
+        <p style="text-align: center;">
+            Select the dragon you like. We have a variety of dragons that you might like to be your companion
+        </p>
+
+        <div class="slider-container">
+
+            <div class="slider-track" id="slider-track">
+                <div class="slide-item active" data-name="Night Fury">
+                    <img src="./assets/slider-imgs/toothless.png" alt="Night Fury">
+                </div>
+
+                <div class="slide-item" data-name="Light Fury">
+                    <img src="./assets/slider-imgs/lightfury.png" alt="Light Fury">
+                </div>
+
+                <div class="slide-item" data-name="Stormfly">
+                    <img src="./assets/slider-imgs/stormfly.png" alt="Stormfly">
+                </div>
+
+                <div class="slide-item" data-name="Armorwing">
+                    <img src="./assets/slider-imgs/armorwing.png" alt="Armorwing">
+                </div>
+
+                <div class="slide-item" data-name="Baby Gronckle">
+                    <img src="./assets/slider-imgs/baby_gronckle.png" alt="Baby Gronckle">
+                </div>
+
+                <div class="slide-item" data-name="Baby Nadder">
+                    <img src="./assets/slider-imgs/baby_nadder.png" alt="Baby Nadder">
+                </div>
+
+                <div class="slide-item" data-name="Baby Nightmare">
+                    <img src="./assets/slider-imgs/baby_nightmare.png" alt="Baby Nightmare">
+                </div>
+
+                <div class="slide-item" data-name="baby Zippleback">
+                    <img src="./assets/slider-imgs/baby_zippleback.png" alt="baby Zippleback">
+                </div>
+
+                <div class="slide-item" data-name="Barf & Belch">
+                    <img src="./assets/slider-imgs/barf&belch.png" alt="Barf & Belch">
+                </div>
+
+                <div class="slide-item" data-name="Cloudjumper">
+                    <img src="./assets/slider-imgs/cloudjumper.png" alt="Cloudjumper">
+                </div>
+
+                <div class="slide-item" data-name="Death Song">
+                    <img src="./assets/slider-imgs/death_song.png" alt="Death Song">
+                </div>
+
+                <div class="slide-item" data-name="Dragos Bewilderbeast">
+                    <img src="./assets/slider-imgs/dragos_bewilderbeast.png" alt="Dragos Bewilderbeast">
+                </div>
+
+                <div class="slide-item" data-name="Dramillion">
+                    <img src="./assets/slider-imgs/dramillion.png" alt="Dramillion">
+                </div>
+
+                <div class="slide-item" data-name="Eruptodon">
+                    <img src="./assets/slider-imgs/eruptodon.png" alt="Eruptodon">
+                </div>
+
+                <div class="slide-item" data-name="Grump">
+                    <img src="./assets/slider-imgs/grump.png" alt="Grump">
+                </div>
+
+                <div class="slide-item" data-name="Hookfang">
+                    <img src="./assets/slider-imgs/hookfang.png" alt="Hookfang">
+                </div>
+
+                <div class="slide-item" data-name="Meatlug">
+                    <img src="./assets/slider-imgs/meatlug.png" alt="Meatlug">
+                </div>
+
+                <div class="slide-item" data-name="Night Terror">
+                    <img src="./assets/slider-imgs/night_terror.png" alt="Night Terror">
+                </div>
+
+                <div class="slide-item" data-name="Seaschocker">
+                    <img src="./assets/slider-imgs/seaschocker.png" alt="Seaschocker">
+                </div>
+
+                <div class="slide-item" data-name="Skrill">
+                    <img src="./assets/slider-imgs/skrill.png" alt="Skrill">
+                </div>
+
+                <div class="slide-item" data-name="Skullcrusher">
+                    <img src="./assets/slider-imgs/skullcrusher.png" alt="Skullcrusher">
+                </div>
+
+                <div class="slide-item" data-name="snaptrapper">
+                    <img src="./assets/slider-imgs/snaptrapper.png" alt="Snaptrapper">
+                </div>
+
+                <div class="slide-item" data-name="Terrible Terror">
+                    <img src="./assets/slider-imgs/terrible_terror.png" alt="Terrible Terror">
+                </div>
+
+                <div class="slide-item" data-name="Thunderdrum">
+                    <img src="./assets/slider-imgs/thunderdrum.png" alt="Thunderdrum">
+                </div>
+
+                <div class="slide-item" data-name="Timberjack">
+                    <img src="./assets/slider-imgs/timberjack.png" alt="Timberjack">
+                </div>
+
+                <div class="slide-item" data-name="Valkas Bewilderbeast">
+                    <img src="./assets/slider-imgs/valkas_bewilderbeast.png" alt="Valkas Bewilderbeast">
+                </div>
+
+                <div class="slide-item" data-name="Whispering Death">
+                    <img src="./assets/slider-imgs/whispering_death (1).png" alt="Whispering Death">
+                </div>
+
+
+            </div>
+
+
+
+            <div class="click-left"></div>
+            <div class="click-right"></div>
+        </div>
+
+        <h3 class="dragon-specie" id="dragon-specie" style="text-align: center;">Night Fury</h3>
+    </section>
+
+    <script src="main.js"></script>
 
 </body>
 </html>

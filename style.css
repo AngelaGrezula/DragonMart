@@ -200,3 +200,61 @@ header {
 
 .click-left { left: 0; cursor: w-resize; }
 .click-right { right: 0; cursor: e-resize; }
+
+
+```css
+/* --- About Page Styling (for about.html) --- */
+
+/* Keyframe for the image animation (subtle glow and slight scale) */
+@keyframes image-pulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); }
+    50% { transform: scale(1.02); filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4)); }
+}
+
+.about-page {
+    position: relative;
+    background: #1d2626; /* Dark background from your .sec */
+    background-image: url("assets/dragon-team.png");
+    min-height: 100vh;
+    padding: 150px 100px 100px; /* Add top padding to clear the fixed header */
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    z-index: 20;
+}
+
+.about-content {
+    flex: 1; /* Takes up half the space */
+    color: white;
+    max-width: 50%; /* Control the width of the text */
+}
+
+.about-content h2 {
+    font-size: 3.5em;
+    color: rgb(200, 200, 200); /* Lighter color for the title */
+    margin-bottom: 20px;
+    font-family: 'Cinzel-Black', sans-serif;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-image-container {
+    flex: 1; /* Takes up the other half of the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.about-image-container img {
+    max-width: 100%;
+    height: auto;
+    /* Animation for the image */
+    animation: image-pulse 4s infinite ease-in-out;
+}
