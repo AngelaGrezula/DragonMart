@@ -215,6 +215,7 @@ header {
 .about-page {
     position: relative;
     background: #1d2626; /* Dark background from your .sec */
+    background-image: url("assets/dragon-team.png");
     min-height: 100vh;
     padding: 150px 100px 100px; /* Add top padding to clear the fixed header */
     display: flex;
