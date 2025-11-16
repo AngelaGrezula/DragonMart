@@ -26,9 +26,55 @@ let slides;
 let totalSlides;
 let currentIndex = 0;
 
+// Get audio elements
+const selectSound = document.getElementById('dragon-select-sound'); 
+const bgm = document.getElementById('background-music'); // Reference for BGM
+let bgmStarted = false; // Flag to prevent multiple BGM starts
+
+// Function to handle slide sound playback
+function playSelectSound() {
+    if (selectSound) {
+        selectSound.currentTime = 0;
+        selectSound.play().catch(e => console.warn("Audio play prevented:", e)); 
+    }
+}
+
+// Function to handle background music start (Autoplay fallback)
+function startBGM() {
+    if (bgm && !bgmStarted) {
+        bgm.play().then(() => {
+            // Success: music started
+            bgmStarted = true;
+            console.log("Background music started.");
+            // Remove the click listener once successfully started
+            document.body.removeEventListener('click', startBGM); 
+        }).catch(e => {
+            // Failure: Autoplay was prevented
+            console.warn("BGM Autoplay blocked. Waiting for user interaction...");
+        });
+    }
+}
+
 function moveSlider(direction) {
     currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    
+    playSelectSound();
+    
     updateSliderClasses();
+}
+
+// Function to update dragon info using data from my_stats.js
+function updateDragonInfo(dragonName) {
+    const d = dragonsData.find(dragon => dragon.name === dragonName);
+    
+    if (d) {
+        dragonDesc.textContent = d.desc;
+        renderStats(d);
+        animateStats();
+    } else {
+        dragonDesc.textContent = "Data not found for this dragon. Please check 'my_stats.js'.";
+        statsWrap.innerHTML = "";
+    }
 }
 
 function updateSliderClasses() {
@@ -43,7 +89,12 @@ function updateSliderClasses() {
     });
 
     const activeSlide = document.querySelector('.slide-item.active');
-    document.getElementById('dragon-specie').textContent = activeSlide.dataset.name;
+    const rawDragonName = activeSlide.dataset.name;
+    const lookupDragonName = rawDragonName.toUpperCase();
+    
+    document.getElementById('dragon-specie').textContent = rawDragonName;
+    
+    updateDragonInfo(lookupDragonName); 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,6 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector('.click-left').onclick = () => moveSlider(-1);
     document.querySelector('.click-right').onclick = () => moveSlider(1);
+    
+    // 1. Attempt to start BGM immediately on load
+    startBGM();
+
+    // 2. Add a fallback listener to start BGM on the very first interaction (any click)
+    document.body.addEventListener('click', startBGM);
 });
 
 // STATS SECTION
