@@ -19,6 +19,13 @@
     font-style: style;
 }
 
+@font-face {
+    font-family: 'Compacta';
+    src: url('./assets/fonts/unicode.compacta.ttf') format('truetype');
+    font-weight: bold;
+    font-style: style;
+}
+
 :root{
     --bg: #2f3b46;
     --stat-bg: rgba(255,255,255,0.12);
@@ -28,6 +35,18 @@
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.section-bg {
+    min-height: 100vh;
+    padding: 60px 0;
+
+    background-image: url('assets/bg.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
 }
 
 body {
@@ -80,7 +99,7 @@ header {
 
 #text {
     position: absolute;
-    font-size: 9rem;
+    font-size: 8.5rem;
     color: rgb(121, 7, 7);
     text-shadow: -2px -2px 0 #E0E0E0,
                  2px  2px 0 #9E9E9E,
@@ -91,7 +110,7 @@ header {
     left: 50%; 
     transform: translateX(-50%);
     text-align: center;
-    top: 25%;
+    top: 22%;
 }
 
 .parallax img {
@@ -100,6 +119,15 @@ header {
     left: 0;
     width: 100%;
     pointer-events: none;
+}
+
+#mountain {
+    bottom: 0;
+    top: auto; 
+}
+
+#dragon-s{
+    margin-right: 40px;
 }
 
 #dragon-l {
@@ -130,6 +158,165 @@ header {
     font-weight: 300;
 }
 
+
+/* --- ANIMATION KEYFRAMES --- */
+/* Fade-In and Slide-Up for text elements */
+@keyframes slideInUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Starts 20px below final position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Ends at final position */
+    }
+}
+
+/* Slide-In from Right for the image */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        /* Starts 100px to the right, maintaining the final horizontal offset (-50%) */
+        transform: translateX(100px) translateX(-50%); 
+    }
+    100% {
+        opacity: 1;
+        /* Ends at its original transformed position for centering */
+        transform: translateX(-50%); 
+    }
+}
+
+
+/* ABOUT SECTION */
+.sec-about {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+.about-wrapper {
+    min-height: 770px; /* Keep this height or adjust as needed */
+    width: 100%;
+    background-color: rgba(29, 38, 38);
+    
+    /* YOUR ORIGINAL BACKGROUND SETTINGS (Untouched) */
+    background-image: url('assets/about_bg.png'); 
+    background-size: cover; 
+    background-position: calc(50% + 110px) top; /* This determines red box position */
+    background-repeat: no-repeat;
+    
+    margin: 0; 
+    padding: 0; 
+    
+    /* VITAL: Allows absolute positioning of children */
+    position: relative; 
+    
+    /* Added flex for horizontal centering of the absolute content container */
+    display: flex;
+    justify-content: center;
+}
+
+/* New container to hold the absolutely positioned text and image */
+.about-content-container {
+    position: relative; /* Allows its children to be absolutely positioned relative to it */
+    width: 100%; /* Take full width to help center */
+    max-width: 1400px; /* Adjust this max-width if content is too wide/narrow overall */
+    height: 100%; /* Take full height to properly position vertically */
+}
+
+
+/* Text Styling (Matches Pic 4) */
+.text-content {
+    color: white;
+    font-family: sans-serif; 
+    max-width: 580px;
+    z-index: 10; 
+    
+    position: absolute; 
+    top: 75px; 
+    left: calc(50% - 450px); 
+
+    /* --- REMOVED ANIMATION INTEGRATION --- */
+    /* animation: slideInUpFade 1.2s ease-out forwards;  <-- DELETE THIS */
+    opacity: 0; /* Hidden before animation */
+}
+
+.text-content h1 {
+    font-size: 8rem;
+    font-weight: 950;
+    margin: 0 0 30px 0;
+    line-height: 0.8;
+    text-transform: uppercase;
+    font-style: oblique;
+    padding-left: 20px;
+
+    /* --- REMOVED ANIMATION INTEGRATION --- */
+    /* animation: slideInUpFade 1s ease-out forwards; <-- DELETE THIS */
+    /* animation-delay: 0.2s; <-- DELETE THIS */
+    opacity: 0; /* Hidden before animation */
+}
+
+.text-content p {
+    font-size: 1.4rem; 
+    line-height: 1.6;
+    margin-top: 0; 
+    letter-spacing: 0.05em;
+    font-family: 'Cinzel', sans-serif;
+    padding-right: 0px; 
+    
+    /* --- REMOVED ANIMATION INTEGRATION --- */
+    /* animation: slideInUpFade 1s ease-out forwards; <-- DELETE THIS */
+    /* animation-delay: 0.4s; <-- DELETE THIS */
+    opacity: 0; /* Hidden before animation */
+}
+
+/* Hiccup Image Styling */
+.hiccup-img {
+    height: 650px;
+    width: auto;
+    object-fit: contain;
+    z-index: 5;
+    
+    position: absolute;
+    bottom: -40px;
+    left: calc(50% + 100px);
+    transform: translateX(-50%);
+
+    /* --- REMOVED ANIMATION INTEGRATION --- */
+    /* animation: slideInRight 1.5s ease-out forwards; <-- DELETE THIS */
+    /* animation-delay: 0.3s; <-- DELETE THIS */
+    opacity: 0; /* Hidden before animation */
+}
+
+/* Class applied by JS when the section enters the viewport */
+.sec-about.is-visible .text-content {
+    animation: slideInUpFade 1.2s ease-out forwards;
+    opacity: 0; /* Resetting initial opacity */
+}
+
+/* Class applied by JS when the section enters the viewport */
+.sec-about.is-visible .text-content h1 {
+    animation: slideInUpFade 1s ease-out forwards;
+    animation-delay: 0.2s; 
+    opacity: 0;
+}
+
+/* Class applied by JS when the section enters the viewport */
+.sec-about.is-visible .text-content p {
+    animation: slideInUpFade 1s ease-out forwards;
+    animation-delay: 0.4s; 
+    opacity: 0;
+}
+
+/* Class applied by JS when the section enters the viewport */
+.sec-about.is-visible .hiccup-img {
+    animation: slideInRight 1.5s ease-out forwards; 
+    animation-delay: 0.3s; 
+    opacity: 0;
+}
+
+/* SLIDER SECTION */
 .dragons-list {
     position: relative;
     background: url('./assets/background.gif') center center no-repeat; 
@@ -208,83 +395,7 @@ header {
 .click-left { left: 0; cursor: w-resize; }
 .click-right { right: 0; cursor: e-resize; }
 
-/* ABOUT SECTION */
 
-.about-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    min-height: 100vh;
-    padding: 60px;
-    border-radius: 20px;
-    overflow: hidden; 
-}
-
-.about-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -5%;
-    left: -5%;
-    width: 110%;
-    height: 110%;
-    z-index: -1;
-    border-radius: 20px;
-    
-    background-image: url('assets/dragon-team.png');
-    background-size: 80vw auto; 
-    background-repeat: no-repeat;
-    background-position: center center; 
-
-    animation: bounceBackground 4s ease-in-out infinite;
-}
-
-.about-img img {
-    width: 100%;
-    object-fit: contain;
-    pointer-events: none;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-@keyframes bounceBackground {
-    0%, 100% {
-        transform: translateY(0) scale(1.05);
-    }
-    50% {
-        transform: translateY(-20px) scale(1.05);
-    }
-}
-
-.about-text {
-    width: 50%;
-    color: white;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-
-    opacity: 0;
-    transform: translateX(200px);
-    animation: slideFadeIn 1s ease-out forwards;
-}
-
-.about-img {
-    width: 40%;
-    opacity: 0;
-    transform: translateX(200px);
-    animation: slideFadeIn 1s ease-out forwards;
-    animation-delay: 0.5s;
-}
-
-@keyframes slideFadeIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
 /* STAT BAR */
 .stats { margin-top: 10px; }
@@ -318,3 +429,325 @@ header {
 .fill--green{ background:linear-gradient(90deg,#00b32d,#96f0a0); }
 .fill--cyan{ background:linear-gradient(90deg,#5de0d5,#aef4ee); }
 .fill--blue{ background:linear-gradient(90deg,#34c2ff,#bff0fb); }
+
+/* SHOP SECTION */
+
+.shop.section-bg {
+    padding-top: 100px; 
+}
+
+.shop-heading {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.shop-heading h2 {
+    font-size: 3rem;
+    color: rgb(121, 7, 7); 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    font-family: 'Cinzel', sans-serif;
+}
+
+.shop-content {
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    justify-content: center; 
+    gap: 1rem;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent; 
+}
+
+.shop-content .box {
+    text-align: center;
+    padding: 0; 
+    min-height: 280px; 
+    background: transparent; 
+    border-radius: 0; 
+    box-shadow: none; 
+    transition: none; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px; 
+}
+
+.shop-content .box:hover {
+    box-shadow: none; 
+}
+
+.shop-content .box h3 {
+    font-size: 1.5rem; 
+    margin: 0 0 0px; 
+    color: rgb(121, 7, 7); 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-family: 'Cinzel', sans-serif;
+}
+
+.shop-content .box .product-visual {
+    position: relative; 
+    width: 100%;
+    height: 180px; 
+    margin-bottom: 20px; 
+}
+
+.shop-content .box .platform-bg {
+    position: absolute;
+    bottom: 0px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; 
+    max-width: 300px; 
+    height: auto;
+    object-fit: contain;
+    z-index: 10; 
+}
+
+.shop-content .box .dragon-img {
+    position: absolute;
+    top: -3px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 5; 
+    
+    width: 220px; 
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease-in-out; 
+}
+
+.shop-content .box:hover .dragon-img {
+    transform: translate(-50%, -15px);
+}
+
+.shop-content .box .product-details {
+    position: absolute;
+    bottom: 30px; 
+    width: 80%;
+    max-width: 300px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 0 10px;
+    z-index: 15;
+}
+
+/* Price Tag Style (Within product-details) */
+.shop-content .box .product-details .price {
+    background: #8B0000; 
+    color: white; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 0; 
+}
+
+/* Add to Cart Button Style (Within product-details) */
+.shop-content .box .product-details .add-to-cart {
+    position: absolute; 
+    right: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+    background: #800020;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.shop-content .box .product-details .add-to-cart:hover {
+    background: #c90044;
+}
+
+/* --- ADDED CART STYLES START --- */
+.cart-info {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon, count, and price */
+    color: white; 
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-left: -20px; 
+    cursor: pointer;
+}
+
+.cart-info .bx-cart {
+    font-size: 1.5rem;
+    color: #8B0000; /* Dark Red accent color */
+}
+
+#cart-count {
+    background: #8B0000; 
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+#cart-total-price {
+    color: #FFD700; /* Gold/Yellow for price */
+}
+
+/* --- Cart Details Window Styles --- */
+#cart-details-window {
+    position: fixed;
+    top: 70px; 
+    right: 20px;
+    width: 350px; /* Increased size to fit image */
+    max-height: 80vh;
+    padding: 15px;
+    z-index: 1000;
+    
+    background: rgba(255, 250, 240, 0.98); 
+    color: #333;
+    border: 1px solid #c0a060; 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    
+    /* Hide by default */
+    opacity: 0;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+#cart-details-window.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#cart-details-window h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #8B0000; 
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: rgb(121, 7, 7); 
+}
+
+/* Individual Item Styling (with Image and Controls) */
+.cart-item {
+    display: flex;
+    align-items: center; 
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+    font-size: 0.95rem;
+}
+
+.cart-item-img {
+    width: 50px; 
+    height: 50px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.item-name {
+    font-weight: bold;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 3px;
+}
+
+.quantity-controls button {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.1s;
+    padding: 0;
+}
+
+.quantity-controls button:hover {
+    background: #8B0000; 
+    color: white;
+    border-color: #8B0000;
+}
+
+.item-quantity {
+    min-width: 15px; 
+    text-align: center;
+}
+
+.item-subtotal {
+    color: #8B0000; 
+    font-weight: bold;
+    /* Ensure it aligns to the right */
+    align-self: flex-start;
+}
+
+
+/* Summary Section */
+.cart-summary {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #c0a060; 
+}
+
+.cart-summary p {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.cart-summary button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.cart-summary button:hover {
+    background: #c90044;
+}
+
+.box .add-to-cart {
+    /* If the button is not visible, it might need positioning. */
+    /* If it's already positioned, ensure it's not STATIC. */
+    position: relative; 
+    
+    /* CRITICAL: Force it above all siblings */
+    z-index: 1000; 
+    
+    /* Ensures clicks work, just in case */
+    pointer-events: auto !important;
+}
+
+/* 2. Check the container of the price and button (looks like a flex container) */
+.box .price-and-bag-container { /* Replace with the actual class of this container */
+    /* If the button is positioned absolutely, its parent must be relative. */
+    position: relative;
+    /* Ensure this container is also above anything else */
+    z-index: 10; 
+}
+/* --- ADDED CART STYLES END --- */
