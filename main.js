@@ -140,8 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    
-
 
 
 
@@ -154,27 +152,27 @@ const dragonsData = [
         species: "Strike",
         class: "Strike",
         img: "toothless.png",
-        desc: `The Night Fury is the rarest and most intelligent species of dragon, known for its jet-black color, nocturnal habits, and deadly plasma blast. Toothless is the only known Night Fury.`,
-        stats: { "Attack":90,"Speed":100,"Armor":70,"Firepower":80,"Shot Limit":60,"Venom":0,"Jaw Strength":80,"Stealth":98 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `The fastest and rarest of all dragons, instantly recognizable by its sleek, jet-black appearance and piercing green eyes. Toothless fires concentrated, powerful plasma blasts that explode upon impact. He is highly intelligent, playful, and incredibly loyal, forming an unbreakable bond with his rider, Hiccup. His retractable teeth give his species its name.`,
+        stats: { "Attack":90,"Speed":100,"Armor":70,"Firepower":80,"Shot Limit":60,"Venom":20},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "LIGHT FURY",
         species: "Light Fury",
         class: "Strike",
         img: "lightfury.png",
-        desc: `The Light Fury is a white, agile dragon known for its ability to cloak itself by blasting plasma and flying through the explosion. They are extremely fast and possess high stealth.`,
-        stats: { "Attack":85,"Speed":100,"Armor":60,"Firepower":75,"Shot Limit":60,"Venom":0,"Jaw Strength":70,"Stealth":95 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `The female counterpart to the Night Fury, distinguished by her pure white, slightly shimmering scales. The Light Fury possesses a unique ability to briefly superheat her plasma blast, allowing her to turn temporarily invisible as she flies through the explosion, making her nearly impossible to track. She is fiercely independent and highly protective of her mate, Toothless.`,
+        stats: { "Attack":85,"Speed":100,"Armor":60,"Firepower":75,"Shot Limit":60,"Venom":35},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "STORMFLY",
         species: "Deadly Nadder",
         class: "Tracker",
         img: "stormfly.png",
-        desc: `Stormfly is a beautiful, vain, but fierce Deadly Nadder. Nadders are known for their hot magnesium-fueled fire and the deadly spikes on their tail, making them very dangerous.`,
-        stats: { "Attack":75,"Speed":80,"Armor":70,"Firepower":60,"Shot Limit":40,"Venom":50,"Jaw Strength":50,"Stealth":20 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A vibrant and vain dragon known for its intense beauty and equally intense aggression. Stormfly's signature move is launching hundreds of razor-sharp, poisonous magnesium spines from her tail. She is incredibly fast and agile, but has a major blind spot directly in front of her nose, a trait Astrid learned to exploit.`,
+        stats: { "Attack":75,"Speed":80,"Armor":70,"Firepower":60,"Shot Limit":40,"Venom":60},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     
     {
@@ -182,225 +180,118 @@ const dragonsData = [
         species: "Armorwing",
         class: "Sharp",
         img: "armorwing.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":80,"Speed":50,"Armor":90,"Firepower":40,"Shot Limit":10,"Venom":0,"Jaw Strength":50,"Stealth":15 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `An opportunistic and highly durable dragon that uses fire to melt and fuse found metal and discarded Viking scrap onto its body, creating an ever-changing, protective suit of thermal armor. It is a formidable fighter, using its fiery breath and metallic hide as weapons.`,
+        stats: { "Attack":80,"Speed":50,"Armor":90,"Firepower":40,"Shot Limit":10,"Venom":40},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    {
-        name: "BABY GRONCKLE",
-        species: "Gronckle",
-        class: "Boulder",
-        img: "baby_gronckle.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":30,"Speed":10,"Armor":40,"Firepower":25,"Shot Limit":2,"Venom":0,"Jaw Strength":35,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "BABY NADDER",
-        species: "Deadly Nadder",
-        class: "Tracker",
-        img: "baby_nadder.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":35,"Speed":40,"Armor":35,"Firepower":20,"Shot Limit":15,"Venom":20,"Jaw Strength":20,"Stealth":10 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "BABY NIGHTMARE",
-        species: "Monsterous Nightmare",
-        class: "Stoker",
-        img: "baby_nightmare.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":40,"Speed":30,"Armor":35,"Firepower":35,"Shot Limit":5,"Venom":0,"Jaw Strength":25,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "BABY ZIPPLEBACK",
-        species: "Hideous Zippleback",
-        class: "Fear",
-        img: "baby_zippleback.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":25,"Speed":30,"Armor":30,"Firepower":40,"Shot Limit":6,"Venom":10,"Jaw Strength":10,"Stealth":40 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
+   
+    
     {
         name: "BARF & BELCH",
         species: "Hideous Zippleback",
         class: "Fear",
         img: "barf&belch.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":50,"Speed":75,"Armor":40,"Firepower":65,"Shot Limit":12,"Venom":15,"Jaw Strength":20,"Stealth":60 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `This bizarre, two-headed dragon is essentially a flying fire hazard. One head, Barf, exhales a green, highly flammable, odorless gas composed of acetylene and hydrogen. The other head, Belch, provides the spark, igniting the gas with pure friction to create a massive explosion. They are often uncoordinated, perfectly matching their riders, Ruffnut and Tuffnut.`,
+        stats: { "Attack":50,"Speed":75,"Armor":40,"Firepower":65,"Shot Limit":12,"Venom":15},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    {
-        name: "CLOUDJUMPER",
-        species: "Stormcutter",
-        class: "Sharp",
-        img: "cloudjumper.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":65,"Speed":70,"Armor":80,"Firepower":70,"Shot Limit":10,"Venom":0,"Jaw Strength":50,"Stealth":30 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
+
     {
         name: "DEATH SONG",
         species: "Death Song",
         class: "Mystery",
         img: "death_song.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":85,"Speed":80,"Armor":40,"Firepower":90,"Shot Limit":8,"Venom":0,"Jaw Strength":40,"Stealth":70 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `This dangerous predator has evolved a highly effective, deceptive hunting method. It emits a beautiful, mesmerizing song that paralyzes and lures other dragons to its location. Once caught, the victim is encased in the Death Song's signature attack: a quick-hardening, sticky amber-like resin.`,
+        stats: { "Attack":85,"Speed":80,"Armor":40,"Firepower":90,"Shot Limit":8,"Venom":30},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "DRAGOS BEWILDERBEAST",
         species: "Bewilderbeast",
         class: "Alpha",
         img: "dragos_bewilderbeast.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":90,"Speed":10,"Armor":100,"Firepower":100,"Shot Limit":6,"Venom":0,"Jaw Strength":100,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `An imposing, male Alpha dragon that was enslaved and cruelly controlled by Drago Bludvist. This gigantic beast ruled through fear and aggression, asserting its Alpha status by firing devastating, glacier-forming ice blasts that can destroy ships and mountainsides.`,
+        stats: { "Attack":90,"Speed":10,"Armor":100,"Firepower":100,"Shot Limit":6,"Venom":40},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "DRAMILLION",
         species: "Dramillion",
         class: "Sharp",
         img: "dramillion.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":80,"Speed":70,"Armor":70,"Firepower":70,"Shot Limit":8,"Venom":0,"Jaw Strength":50,"Stealth":80 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A rare and highly intelligent dragon that has the unique biological ability to perfectly mimic the fire breath of any dragon species it encounters. This makes it an invaluable asset, as it can defend itself with the best offensive attack observed from a rival. They are fiercely loyal and protective of their kind.`,
+        stats: { "Attack":80,"Speed":70,"Armor":70,"Firepower":70,"Shot Limit":8,"Venom":30},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    {
-        name: "ERUPTODON",
-        species: "Eruptodon",
-        class: "Boulder",
-        img: "eruptodon.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":75,"Speed":50,"Armor":90,"Firepower":80,"Shot Limit":8,"Venom":0,"Jaw Strength":70,"Stealth":10 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "GRUMP",
-        species: "Gronckle",
-        class: "Boulder",
-        img: "grump.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":50,"Speed":40,"Armor":80,"Firepower":50,"Shot Limit":6,"Venom":0,"Jaw Strength":60,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "HOOKFANG",
-        species: "Monsterous Nightmare",
-        class: "Stoker",
-        img: "hookfang.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":95,"Speed":65,"Armor":75,"Firepower":85,"Shot Limit":10,"Venom":0,"Jaw Strength":60,"Stealth":10 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "MEATLUG",
-        species: "Gronckle",
-        class: "Boulder",
-        img: "meatlug.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":50,"Speed":40,"Armor":80,"Firepower":50,"Shot Limit":6,"Venom":0,"Jaw Strength":60,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
+
+ 
+    
     {
         name: "NIGHT TERROR",
         species: "Night Terror",
         class: "Stoker",
         img: "night_terror.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":40,"Speed":80,"Armor":20,"Firepower":30,"Shot Limit":4,"Venom":0,"Jaw Strength":20,"Stealth":85 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A species of small, social, nocturnal dragons. They are individually weak, but possess the remarkable ability to fly and form intricate, coordinated flocks that mimic the shape and size of much larger dragons to scare away predators. They are led by a dominant white Night Terror, the 'Alpha'.`,
+        stats: { "Attack":40,"Speed":80,"Armor":20,"Firepower":30,"Shot Limit":4,"Venom":30},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    {
-        name: "PLATFORM",
-        species: "Platform",
-        class: "Tidal",
-        img: "platform.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":60,"Speed":30,"Armor":95,"Firepower":20,"Shot Limit":5,"Venom":0,"Jaw Strength":80,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "SEASHOCKER",
-        species: "Seashocker",
-        class: "Tidal",
-        img: "seashocker.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":60,"Speed":70,"Armor":40,"Firepower":30,"Shot Limit":4,"Venom":0,"Jaw Strength":20,"Stealth":70 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
+    
+    
     {
         name: "SKRILL",
         species: "Skrill",
         class: "Strike",
         img: "skrill.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":88,"Speed":90,"Armor":70,"Firepower":80,"Shot Limit":4,"Venom":0,"Jaw Strength":50,"Stealth":60 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `One of the most feared and powerful dragons, capable of absorbing and channeling the power of lightning. The Skrill can ride a lightning bolt and fire intensely focused blasts of electrical energy. It is an extremely aggressive and difficult dragon to train, making it a highly prized weapon.`,
+        stats: { "Attack":88,"Speed":90,"Armor":70,"Firepower":80,"Shot Limit":4,"Venom":20},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "SKULLCRUSHER",
         species: "Rumblehorn",
         class: "Tracker",
         img: "skullcrusher.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":80,"Speed":60,"Armor":90,"Firepower":30,"Shot Limit":6,"Venom":0,"Jaw Strength":75,"Stealth":20 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A powerful, terrestrial dragon with a thick, bony plating and a huge rhinoceros-like horn. The Rumblehorn has the best sense of smell in the dragon world, allowing it to track a target's scent over vast distances and through harsh weather. Stoick trained him after the death of his previous dragon.`,
+        stats: { "Attack":80,"Speed":60,"Armor":90,"Firepower":30,"Shot Limit":6,"Venom":35},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "SNAPTRAPPER",
         species: "Snaptrapper",
         class: "Fear",
         img: "snaptrapper.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":50,"Speed":50,"Armor":40,"Firepower":60,"Shot Limit":10,"Venom":0,"Jaw Strength":70,"Stealth":50 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A large, four-headed dragon resembling a terrestrial plant, often camouflaged in swamps. Each of its four heads is equipped with razor-sharp teeth. Its unique hunting strategy is to emit a powerful scent of pure chocolate to lure in unsuspecting victims before its heads snap shut.`,
+        stats: { "Attack":50,"Speed":50,"Armor":40,"Firepower":60,"Shot Limit":10,"Venom":50},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "TERRIBLE TERROR",
         species: "Terrible Terror",
         class: "Stoker",
         img: "terrible_terror.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":10,"Speed":40,"Armor":10,"Firepower":15,"Shot Limit":2,"Venom":10,"Jaw Strength":5,"Stealth":50 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `The smallest of all known dragons, roughly the size of a housecat. Despite their size, they are fearless and aggressive, capable of flying at high speeds and firing an incredibly precise, yet small, stream of kerosene-based fire at their target. They are social and easily distracted.`,
+        stats: { "Attack":10,"Speed":40,"Armor":10,"Firepower":15,"Shot Limit":2,"Venom":10},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
     {
         name: "THUNDERDRUM",
         species: "Thunderdrum",
         class: "Tidal",
         img: "thunderdrum.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":70,"Speed":70,"Armor":70,"Firepower":50,"Shot Limit":6,"Venom":0,"Jaw Strength":50,"Stealth":30 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A formidable and aquatic dragon that attacks by inhaling huge amounts of air and water, then exhaling it in an explosive, deafening sonic blast that can shatter wood and temporarily deafen all living creatures nearby. They are often found near sea caves and open water.`,
+        stats: { "Attack":70,"Speed":70,"Armor":70,"Firepower":50,"Shot Limit":6,"Venom":0},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    {
-        name: "TIMBERJACK",
-        species: "Timberjack",
-        class: "Sharp",
-        img: "timberjack.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":60,"Speed":80,"Armor":20,"Firepower":50,"Shot Limit":5,"Venom":0,"Jaw Strength":70,"Stealth":60 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
-    {
-        name: "VALKAS BEWILDERBEAST",
-        species: "Bewilderbeast",
-        class: "Alpha",
-        img: "valkas_bewilderbeast.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":90,"Speed":10,"Armor":100,"Firepower":100,"Shot Limit":6,"Venom":0,"Jaw Strength":100,"Stealth":5 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
-    },
+
+   
     {
         name: "WHISPERING DEATH",
         species: "Whispering Death",
         class: "Boulder",
         img: "whispering_death.png",
-        desc: `***PLACEHOLDER: FILL IN DESCRIPTION HERE***`,
-        stats: { "Attack":70,"Speed":50,"Armor":50,"Firepower":40,"Shot Limit":8,"Venom":0,"Jaw Strength":80,"Stealth":70 },
-        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green","fill--cyan","fill--blue"]
+        desc: `A frightening, serpentine dragon that lives entirely underground. It has rows of continuously spinning, razor-sharp teeth that allow it to drill rapidly through solid rock, creating complex networks of tunnels. Its fire is unique: concentrated rings of fiery projectiles that can be shot from a distance.`,
+        stats: { "Attack":70,"Speed":50,"Armor":50,"Firepower":40,"Shot Limit":8,"Venom":0},
+        palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     }
 ];
 
@@ -639,7 +530,16 @@ function toggleCartDetails() {
     cartDetailsWindow.classList.toggle('visible');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    setupCartFunctionality();
-});
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    // I-initialize ang Cart functionality
+    setupCartFunctionality();
+    
+    // Subukan simulan ang BGM pagkatapos mag-load ng lahat ng elements
+    startBGM();
+
+    // Palaging magdagdag ng fallback listener para sa unang user interaction.
+    // Ito ang magsisiguro na magpe-play ang music kahit na i-block ng browser ang autoplay.
+    document.body.addEventListener('click', startBGM);
+});

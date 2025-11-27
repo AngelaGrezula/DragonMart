@@ -228,7 +228,7 @@ header {
 
 /* Text Styling (Matches Pic 4) */
 .text-content {
-    color: white;
+    color: rgb(255, 253, 253);
     font-family: sans-serif; 
     max-width: 580px;
     z-index: 10; 
@@ -258,7 +258,7 @@ header {
 }
 
 .text-content p {
-    font-size: 1.4rem; 
+    font-size: 1.2rem; 
     line-height: 1.6;
     margin-top: 0; 
     letter-spacing: 0.05em;
@@ -269,6 +269,27 @@ header {
     /* animation: slideInUpFade 1s ease-out forwards; <-- DELETE THIS */
     /* animation-delay: 0.4s; <-- DELETE THIS */
     opacity: 0; /* Hidden before animation */
+}
+
+.cta-button {
+    display: inline-block; /* Makes it behave like a block but only take up necessary width */
+    background-color: #ffc400; /* Bright yellow color from the example */
+    color: #4a280e; /* Dark brown/black text color for contrast */
+    padding: 12px 30px; /* Adjust padding to control button size */
+    border-radius: 30px; /* Highly rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.1em; /* Adjust font size as needed */
+    font-weight: bold; /* Make text bold */
+    margin-top: 25px; /* Add some space above the button, adjust as needed */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border: none; /* Remove any default border */
+    cursor: pointer; /* Indicates it's clickable */
+    font-family: 'Cinzel', sans-serif;
+}
+
+.cta-button:hover {
+    background-color: #f8ce5b; /* Slightly darker yellow on hover */
+    color: #2b1706;
 }
 
 /* Hiccup Image Styling */
@@ -316,22 +337,63 @@ header {
     opacity: 0;
 }
 
-/* SLIDER SECTION */
+/* DRAGON'S SECTION */
+
+#dl-header .logo{
+    color: #FFAB00;
+}
+
+#dl-header .navigation a{
+    color: #FFAB00;
+}
+
 .dragons-list {
     position: relative;
-    background: url('./assets/background.gif') center center no-repeat; 
-    background-size: cover; 
+    background: url('./assets/testing2.jpg') center center no-repeat; 
+    background-size: 100% auto; 
     background-color: var(--bg);
-    padding: 100px;
+    padding: 0;
+    margin: 0;
     min-height: 100vh;
-    color: bisque;
+    color: #EAEAEA;
+    font-family: 'Cinzel', sans-serif;
     overflow: hidden; 
+}
+
+.dragons-list h2 {
+    color: #FFAB00;
+    font-size: 2em;
+}
+
+.dragons-list p {
+    font-size: .85em;
+    color: #EAEAEA;
+}
+
+#dragon-desc {
+    font-family: 'Cinzel', serif; /* Replace 'YourCustomFontName' with the font name you defined in @font-face */
+    color: #EAEAEA;
+}
+
+#dragon-specie {
+    font-family: 'Cinzel', serif;
+    color: #EAEAEA;
+}
+
+.dragons-list h2 {
+    margin-top: 10px;
+    margin-bottom: 8px; 
+}
+
+.dragons-list p {
+    margin-top: 5px; 
+    margin-bottom: -40px; /* Reduced space before the dragons start */
 }
 
 .slider-container {
     width: 100%;
-    height: 400px;
-    margin: 40px auto;
+    height: 270px;
+    margin: 0;
     position: relative;
     overflow: hidden;
     perspective: 1000px;
@@ -363,24 +425,24 @@ header {
 .slide-item.active {
     left: 33.33%;
     opacity: 1;
-    transform: scale(1.03) translateZ(50px);
+    transform: scale(0.6) translateZ(20px);
     pointer-events: none;
 }
 
 .slide-item.prev {
     left: 0;
-    transform: scale(0.9);
+    transform: scale(0.5);
 }
 
 .slide-item.next {
     left: 66.66%;
-    transform: scale(0.9);
+    transform: scale(0.5);
 }
 
 .slide-item:not(.active):not(.prev):not(.next) {
     opacity: 0;
     pointer-events: none;
-    transform: scale(0.5);
+    transform: scale(0.3);
 }
 
 .click-left,
@@ -396,31 +458,62 @@ header {
 .click-right { right: 0; cursor: e-resize; }
 
 
+/* DRAGON TITLE & DESCRIPTION — RAISED HIGHER */
+.dragon-name{
+    margin-top: -45px;      /* ↑ LIFT TITLE MORE */
+    font-size: 2.1em;
+}
 
-/* STAT BAR */
-.stats { margin-top: 10px; }
-.stat { margin-bottom: 18px; }
-.stat label {
-    display: block;
-    font-size: 16px;
+.tagline{
+    margin-top: -15px;      /* ↑ LIFT */
+    font-size: 1.15em;
+}
+
+.description{
+    margin-top: -10px;      /* ↑ LIFT DESCRIPTION */
+    margin-bottom: 5px;
+    max-width: 750px;
+    line-height: 1.25;
+    font-size: 0.95em;
+}
+
+
+/* STATS (COMPACT + CLEANED + FITS ON SCREEN) */
+.stats{ 
+    margin-top: 10px;        /* MUCH HIGHER */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stat{ 
     margin-bottom: 6px;
-    color: #fff;
+}
+
+.stat label{
+    display: block;
+    font-size: 12px;
+    margin-bottom: 3px;
+    color: #ffffff;
     font-weight: 600;
 }
-.stat .bar {
-    height: 16px;
+
+.stat .bar{
+    height: 8px;
     width: 100%;
     background: var(--stat-bg);
-    border-radius: 18px;
+    border-radius: 10px;
     overflow: hidden;
 }
-.stat .fill {
+
+.stat .fill{
     height: 100%;
     width: 0;
-    border-radius: 18px;
-    transition: width 900ms cubic-bezier(.2,.9,.2,1);
+    border-radius: 10px;
+    transition: width 800ms cubic-bezier(.2,.9,.2,1);
 }
 
+/* GRADIENT COLORS */
 .fill--pink{ background:linear-gradient(90deg,#ff7f7f,#ffc4c4); }
 .fill--teal{ background:linear-gradient(90deg,#2fd2bd,#bff5ef); }
 .fill--magenta{ background:linear-gradient(90deg,#d43bd8,#f1a6f0); }
@@ -433,6 +526,9 @@ header {
 /* SHOP SECTION */
 
 .shop.section-bg {
+    background-color: rgba(30, 30, 30, 0.9); /* Gawin itong bahagyang transparent, o gumamit ng solid color */
+    background-image: url('./assets/shop_background.jpg'); /* Maaari kang gumamit ng pattern para sa sections */
+    background-repeat: repeat;
     padding-top: 100px; 
 }
 
@@ -595,7 +691,7 @@ header {
 }
 
 #cart-total-price {
-    color: #FFD700; /* Gold/Yellow for price */
+    color: #8B0000; /* Gold/Yellow for price */
 }
 
 /* --- Cart Details Window Styles --- */
@@ -751,3 +847,114 @@ header {
     z-index: 10; 
 }
 /* --- ADDED CART STYLES END --- */
+
+/* Your other CSS here... */
+
+
+/* ========================= */
+/* FOOTER SECTION (ADD HERE) */
+
+.footer {
+    background: lch(13.86% 40.79 32.11);
+    color: rgb(255, 253, 253);
+    padding: 30px 20px; /* Reduced vertical padding */
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Cinzel', sans-serif;
+    display: flex; 
+    flex-direction: column; /* Main content still stacks */
+    align-items: center;
+    gap: 10px; 
+}
+
+.footer h3 {
+    font-size: 28px;
+    margin: 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Style for the "For inquiries..." subheading */
+.footer-content > p {
+    font-size: 13px;
+    opacity: 0.8;
+    margin: 0 0 20px 0; /* Space below this line */
+}
+
+/* 🚀 KEY CONTAINER: Lays out Email, Phone, and Socials horizontally */
+.footer-bottom-row {
+    display: flex;
+    justify-content: center; /* Center content when combined */
+    align-items: center; 
+    width: 100%;
+    max-width: 1200px; /* Maximize horizontal usage */
+    flex-wrap: wrap; 
+    padding-top: 20px; 
+    border-top: 1px solid rgba(255, 253, 253, 0.3); /* Separator line */
+    margin-top: 20px; 
+    gap: 20px 40px; /* Vertical (20px) and Horizontal (40px) spacing */
+}
+
+/* New class for the contact details (Email/Phone) to style them individually */
+.contact-item {
+    font-size: 14px; 
+    opacity: 0.95;
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    white-space: nowrap; /* Prevent phone/email from breaking across lines too easily */
+}
+
+.contact-item a {
+    color: inherit; 
+    text-decoration: none; 
+    opacity: 0.95; 
+}
+
+/* Styles for the Email and Phone icons */
+.icon-spacing {
+    font-size: 16px; 
+    margin-right: 8px; 
+}
+
+/* Styles for Social Icons section */
+.social-links {
+    display: flex;
+    justify-content: center;
+    /* Spread out social links horizontally */
+    gap: 25px; 
+}
+
+.social-link {
+    font-size: 14px; 
+    color: rgb(255, 253, 253);
+    opacity: 0.7;
+    text-decoration: none; 
+    transition: opacity 0.3s;
+    /* Stack icon and text for better visual grouping */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 5px; /* Small space between icon and text label */
+}
+
+.social-link i {
+    font-size: 22px; /* Make the social icons larger */
+}
+
+.social-link:hover {
+    opacity: 1; 
+}
+
+/* Responsive: Stack all items on very small screens */
+@media (max-width: 650px) {
+    .footer-bottom-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .social-links {
+        flex-direction: row; /* Keep social icons horizontal even when the main row stacks */
+        gap: 15px;
+    }
+}
