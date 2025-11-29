@@ -355,7 +355,7 @@ function addItemToCart(buttonElement) {
 
     cart.count += 1;
     cart.total += price;
-s
+    
     const existingItem = cart.items.find(item => item.name === name);
 
     if (existingItem) {
