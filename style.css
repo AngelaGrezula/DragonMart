@@ -159,29 +159,24 @@ header {
 }
 
 
-/* --- ANIMATION KEYFRAMES --- */
-/* Fade-In and Slide-Up for text elements */
 @keyframes slideInUpFade {
     0% {
         opacity: 0;
-        transform: translateY(20px); /* Starts 20px below final position */
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0); /* Ends at final position */
+        transform: translateY(0);
     }
 }
 
-/* Slide-In from Right for the image */
 @keyframes slideInRight {
     0% {
         opacity: 0;
-        /* Starts 100px to the right, maintaining the final horizontal offset (-50%) */
         transform: translateX(100px) translateX(-50%); 
     }
     100% {
         opacity: 1;
-        /* Ends at its original transformed position for centering */
         transform: translateX(-50%); 
     }
 }
@@ -192,41 +187,31 @@ header {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevents scrollbars */
+    overflow: hidden;
 }
 
 .about-wrapper {
-    min-height: 770px; /* Keep this height or adjust as needed */
+    min-height: 770px;
     width: 100%;
     background-color: rgba(29, 38, 38);
-    
-    /* YOUR ORIGINAL BACKGROUND SETTINGS (Untouched) */
     background-image: url('assets/about_bg.png'); 
     background-size: cover; 
-    background-position: calc(50% + 110px) top; /* This determines red box position */
+    background-position: calc(50% + 110px) top;
     background-repeat: no-repeat;
-    
     margin: 0; 
     padding: 0; 
-    
-    /* VITAL: Allows absolute positioning of children */
     position: relative; 
-    
-    /* Added flex for horizontal centering of the absolute content container */
     display: flex;
     justify-content: center;
 }
 
-/* New container to hold the absolutely positioned text and image */
 .about-content-container {
-    position: relative; /* Allows its children to be absolutely positioned relative to it */
-    width: 100%; /* Take full width to help center */
-    max-width: 1400px; /* Adjust this max-width if content is too wide/narrow overall */
-    height: 100%; /* Take full height to properly position vertically */
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
 }
 
-
-/* Text Styling (Matches Pic 4) */
 .text-content {
     color: rgb(255, 253, 253);
     font-family: sans-serif; 
@@ -236,10 +221,7 @@ header {
     position: absolute; 
     top: 75px; 
     left: calc(50% - 450px); 
-
-    /* --- REMOVED ANIMATION INTEGRATION --- */
-    /* animation: slideInUpFade 1.2s ease-out forwards;  <-- DELETE THIS */
-    opacity: 0; /* Hidden before animation */
+    opacity: 0;
 }
 
 .text-content h1 {
@@ -250,11 +232,7 @@ header {
     text-transform: uppercase;
     font-style: oblique;
     padding-left: 20px;
-
-    /* --- REMOVED ANIMATION INTEGRATION --- */
-    /* animation: slideInUpFade 1s ease-out forwards; <-- DELETE THIS */
-    /* animation-delay: 0.2s; <-- DELETE THIS */
-    opacity: 0; /* Hidden before animation */
+    opacity: 0;
 }
 
 .text-content p {
@@ -263,36 +241,31 @@ header {
     margin-top: 0; 
     letter-spacing: 0.05em;
     font-family: 'Cinzel', sans-serif;
-    padding-right: 0px; 
-    
-    /* --- REMOVED ANIMATION INTEGRATION --- */
-    /* animation: slideInUpFade 1s ease-out forwards; <-- DELETE THIS */
-    /* animation-delay: 0.4s; <-- DELETE THIS */
-    opacity: 0; /* Hidden before animation */
+    padding-right: 0px;
+    opacity: 0;
 }
 
 .cta-button {
-    display: inline-block; /* Makes it behave like a block but only take up necessary width */
-    background-color: #ffc400; /* Bright yellow color from the example */
-    color: #4a280e; /* Dark brown/black text color for contrast */
-    padding: 12px 30px; /* Adjust padding to control button size */
-    border-radius: 30px; /* Highly rounded corners */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.1em; /* Adjust font size as needed */
-    font-weight: bold; /* Make text bold */
-    margin-top: 25px; /* Add some space above the button, adjust as needed */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    border: none; /* Remove any default border */
-    cursor: pointer; /* Indicates it's clickable */
+    display: inline-block;
+    background-color: #ffc400;
+    color: #4a280e;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
     font-family: 'Cinzel', sans-serif;
 }
 
 .cta-button:hover {
-    background-color: #f8ce5b; /* Slightly darker yellow on hover */
+    background-color: #f8ce5b;
     color: #2b1706;
 }
 
-/* Hiccup Image Styling */
 .hiccup-img {
     height: 650px;
     width: auto;
@@ -303,41 +276,31 @@ header {
     bottom: -40px;
     left: calc(50% + 100px);
     transform: translateX(-50%);
-
-    /* --- REMOVED ANIMATION INTEGRATION --- */
-    /* animation: slideInRight 1.5s ease-out forwards; <-- DELETE THIS */
-    /* animation-delay: 0.3s; <-- DELETE THIS */
-    opacity: 0; /* Hidden before animation */
+    opacity: 0;
 }
 
-/* Class applied by JS when the section enters the viewport */
 .sec-about.is-visible .text-content {
     animation: slideInUpFade 1.2s ease-out forwards;
-    opacity: 0; /* Resetting initial opacity */
+    opacity: 0;
 }
 
-/* Class applied by JS when the section enters the viewport */
 .sec-about.is-visible .text-content h1 {
     animation: slideInUpFade 1s ease-out forwards;
     animation-delay: 0.2s; 
     opacity: 0;
 }
 
-/* Class applied by JS when the section enters the viewport */
 .sec-about.is-visible .text-content p {
     animation: slideInUpFade 1s ease-out forwards;
     animation-delay: 0.4s; 
     opacity: 0;
 }
 
-/* Class applied by JS when the section enters the viewport */
 .sec-about.is-visible .hiccup-img {
     animation: slideInRight 1.5s ease-out forwards; 
     animation-delay: 0.3s; 
     opacity: 0;
 }
-
-/* DRAGON'S SECTION */
 
 #dl-header .logo{
     color: #FFAB00;
@@ -346,6 +309,8 @@ header {
 #dl-header .navigation a{
     color: #FFAB00;
 }
+
+/* DRAGONS SECTION */
 
 .dragons-list {
     position: relative;
@@ -371,7 +336,7 @@ header {
 }
 
 #dragon-desc {
-    font-family: 'Cinzel', serif; /* Replace 'YourCustomFontName' with the font name you defined in @font-face */
+    font-family: 'Cinzel', serif;
     color: #EAEAEA;
 }
 
@@ -387,7 +352,7 @@ header {
 
 .dragons-list p {
     margin-top: 5px; 
-    margin-bottom: -40px; /* Reduced space before the dragons start */
+    margin-bottom: -40px;
 }
 
 .slider-container {
@@ -458,29 +423,26 @@ header {
 .click-right { right: 0; cursor: e-resize; }
 
 
-/* DRAGON TITLE & DESCRIPTION — RAISED HIGHER */
 .dragon-name{
-    margin-top: -45px;      /* ↑ LIFT TITLE MORE */
+    margin-top: -45px;
     font-size: 2.1em;
 }
 
 .tagline{
-    margin-top: -15px;      /* ↑ LIFT */
+    margin-top: -15px;
     font-size: 1.15em;
 }
 
 .description{
-    margin-top: -10px;      /* ↑ LIFT DESCRIPTION */
+    margin-top: -10px;
     margin-bottom: 5px;
     max-width: 750px;
     line-height: 1.25;
     font-size: 0.95em;
 }
 
-
-/* STATS (COMPACT + CLEANED + FITS ON SCREEN) */
 .stats{ 
-    margin-top: 10px;        /* MUCH HIGHER */
+    margin-top: 10px;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -513,7 +475,6 @@ header {
     transition: width 800ms cubic-bezier(.2,.9,.2,1);
 }
 
-/* GRADIENT COLORS */
 .fill--pink{ background:linear-gradient(90deg,#ff7f7f,#ffc4c4); }
 .fill--teal{ background:linear-gradient(90deg,#2fd2bd,#bff5ef); }
 .fill--magenta{ background:linear-gradient(90deg,#d43bd8,#f1a6f0); }
@@ -526,8 +487,8 @@ header {
 /* SHOP SECTION */
 
 .shop.section-bg {
-    background-color: rgba(30, 30, 30, 0.9); /* Gawin itong bahagyang transparent, o gumamit ng solid color */
-    background-image: url('./assets/shop_background.jpg'); /* Maaari kang gumamit ng pattern para sa sections */
+    background-color: rgba(30, 30, 30, 0.9);
+    background-image: url('./assets/shop_background.jpg');
     background-repeat: repeat;
     padding-top: 100px; 
 }
@@ -630,7 +591,6 @@ header {
     z-index: 15;
 }
 
-/* Price Tag Style (Within product-details) */
 .shop-content .box .product-details .price {
     background: #8B0000; 
     color: white; 
@@ -641,7 +601,6 @@ header {
     margin: 0; 
 }
 
-/* Add to Cart Button Style (Within product-details) */
 .shop-content .box .product-details .add-to-cart {
     position: absolute; 
     right: 0; 
@@ -664,11 +623,10 @@ header {
     background: #c90044;
 }
 
-/* --- ADDED CART STYLES START --- */
 .cart-info {
     display: flex;
     align-items: center;
-    gap: 8px; /* Space between icon, count, and price */
+    gap: 8px;
     color: white; 
     font-size: 1.1rem;
     font-weight: bold;
@@ -678,7 +636,7 @@ header {
 
 .cart-info .bx-cart {
     font-size: 1.5rem;
-    color: #8B0000; /* Dark Red accent color */
+    color: #8B0000;
 }
 
 #cart-count {
@@ -691,15 +649,14 @@ header {
 }
 
 #cart-total-price {
-    color: #8B0000; /* Gold/Yellow for price */
+    color: #8B0000;
 }
 
-/* --- Cart Details Window Styles --- */
 #cart-details-window {
     position: fixed;
     top: 70px; 
     right: 20px;
-    width: 350px; /* Increased size to fit image */
+    width: 350px;
     max-height: 80vh;
     padding: 15px;
     z-index: 1000;
@@ -710,8 +667,6 @@ header {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
-    
-    /* Hide by default */
     opacity: 0;
     pointer-events: auto;
     transition: opacity 0.3s ease;
@@ -730,7 +685,6 @@ header {
     color: rgb(121, 7, 7); 
 }
 
-/* Individual Item Styling (with Image and Controls) */
 .cart-item {
     display: flex;
     align-items: center; 
@@ -792,12 +746,9 @@ header {
 .item-subtotal {
     color: #8B0000; 
     font-weight: bold;
-    /* Ensure it aligns to the right */
     align-self: flex-start;
 }
 
-
-/* Summary Section */
 .cart-summary {
     margin-top: 10px;
     padding-top: 10px;
@@ -828,41 +779,27 @@ header {
 }
 
 .box .add-to-cart {
-    /* If the button is not visible, it might need positioning. */
-    /* If it's already positioned, ensure it's not STATIC. */
     position: relative; 
-    
-    /* CRITICAL: Force it above all siblings */
     z-index: 1000; 
-    
-    /* Ensures clicks work, just in case */
     pointer-events: auto !important;
 }
 
-/* 2. Check the container of the price and button (looks like a flex container) */
-.box .price-and-bag-container { /* Replace with the actual class of this container */
-    /* If the button is positioned absolutely, its parent must be relative. */
+.box .price-and-bag-container {
     position: relative;
-    /* Ensure this container is also above anything else */
     z-index: 10; 
 }
-/* --- ADDED CART STYLES END --- */
 
-/* Your other CSS here... */
-
-
-/* ========================= */
-/* FOOTER SECTION (ADD HERE) */
+/* FOOTER SECTION */
 
 .footer {
     background: lch(13.86% 40.79 32.11);
     color: rgb(255, 253, 253);
-    padding: 30px 20px; /* Reduced vertical padding */
+    padding: 30px 20px;
     text-align: center;
     margin-top: 50px;
     font-family: 'Cinzel', sans-serif;
     display: flex; 
-    flex-direction: column; /* Main content still stacks */
+    flex-direction: column;
     align-items: center;
     gap: 10px; 
 }
@@ -874,35 +811,32 @@ header {
     text-transform: uppercase;
 }
 
-/* Style for the "For inquiries..." subheading */
 .footer-content > p {
     font-size: 13px;
     opacity: 0.8;
-    margin: 0 0 20px 0; /* Space below this line */
+    margin: 0 0 20px 0;
 }
 
-/* 🚀 KEY CONTAINER: Lays out Email, Phone, and Socials horizontally */
 .footer-bottom-row {
     display: flex;
-    justify-content: center; /* Center content when combined */
+    justify-content: center;
     align-items: center; 
     width: 100%;
-    max-width: 1200px; /* Maximize horizontal usage */
+    max-width: 1200px;
     flex-wrap: wrap; 
     padding-top: 20px; 
-    border-top: 1px solid rgba(255, 253, 253, 0.3); /* Separator line */
+    border-top: 1px solid rgba(255, 253, 253, 0.3);
     margin-top: 20px; 
-    gap: 20px 40px; /* Vertical (20px) and Horizontal (40px) spacing */
+    gap: 20px 40px; 
 }
 
-/* New class for the contact details (Email/Phone) to style them individually */
 .contact-item {
     font-size: 14px; 
     opacity: 0.95;
     margin: 0; 
     display: flex; 
     align-items: center; 
-    white-space: nowrap; /* Prevent phone/email from breaking across lines too easily */
+    white-space: nowrap;
 }
 
 .contact-item a {
@@ -911,17 +845,14 @@ header {
     opacity: 0.95; 
 }
 
-/* Styles for the Email and Phone icons */
 .icon-spacing {
     font-size: 16px; 
     margin-right: 8px; 
 }
 
-/* Styles for Social Icons section */
 .social-links {
     display: flex;
     justify-content: center;
-    /* Spread out social links horizontally */
     gap: 25px; 
 }
 
@@ -931,22 +862,20 @@ header {
     opacity: 0.7;
     text-decoration: none; 
     transition: opacity 0.3s;
-    /* Stack icon and text for better visual grouping */
     display: flex;
     flex-direction: column; 
     align-items: center;
-    gap: 5px; /* Small space between icon and text label */
+    gap: 5px;
 }
 
 .social-link i {
-    font-size: 22px; /* Make the social icons larger */
+    font-size: 22px;
 }
 
 .social-link:hover {
     opacity: 1; 
 }
 
-/* Responsive: Stack all items on very small screens */
 @media (max-width: 650px) {
     .footer-bottom-row {
         flex-direction: column;
@@ -954,7 +883,7 @@ header {
     }
     
     .social-links {
-        flex-direction: row; /* Keep social icons horizontal even when the main row stacks */
+        flex-direction: row;
         gap: 15px;
     }
 }

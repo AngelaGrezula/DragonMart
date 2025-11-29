@@ -26,12 +26,10 @@ let slides;
 let totalSlides;
 let currentIndex = 0;
 
-// Get audio elements
 const selectSound = document.getElementById('dragon-select-sound'); 
-const bgm = document.getElementById('background-music'); // Reference for BGM
-let bgmStarted = false; // Flag to prevent multiple BGM starts
+const bgm = document.getElementById('background-music');
+let bgmStarted = false; 
 
-// Function to handle slide sound playback
 function playSelectSound() {
     if (selectSound) {
         selectSound.currentTime = 0;
@@ -39,17 +37,13 @@ function playSelectSound() {
     }
 }
 
-// Function to handle background music start (Autoplay fallback)
 function startBGM() {
     if (bgm && !bgmStarted) {
         bgm.play().then(() => {
-            // Success: music started
             bgmStarted = true;
             console.log("Background music started.");
-            // Remove the click listener once successfully started
             document.body.removeEventListener('click', startBGM); 
         }).catch(e => {
-            // Failure: Autoplay was prevented
             console.warn("BGM Autoplay blocked. Waiting for user interaction...");
         });
     }
@@ -63,7 +57,6 @@ function moveSlider(direction) {
     updateSliderClasses();
 }
 
-// Function to update dragon info using data from my_stats.js
 function updateDragonInfo(dragonName) {
     const d = dragonsData.find(dragon => dragon.name === dragonName);
     
@@ -105,31 +98,24 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.click-left').onclick = () => moveSlider(-1);
     document.querySelector('.click-right').onclick = () => moveSlider(1);
     
-    // 1. Attempt to start BGM immediately on load
     startBGM();
 
-    // 2. Add a fallback listener to start BGM on the very first interaction (any click)
     document.body.addEventListener('click', startBGM);
 }); 
 
-// ABOUT SECTION
     document.addEventListener('DOMContentLoaded', () => {
         const aboutSection = document.querySelector('.sec-about');
-        
-        // Configuration for the observer
         const observerOptions = {
-            root: null, // relative to the viewport
+            root: null,
             rootMargin: '0px',
-            threshold: 0.1 // 10% of the target element must be visible
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Element is now visible, add class to start animation
                     entry.target.classList.add('is-visible');
                 } else {
-                    // Element is no longer visible, remove class to reset animation
                     entry.target.classList.remove('is-visible');
                 }
             });
@@ -174,7 +160,6 @@ const dragonsData = [
         stats: { "Attack":75,"Speed":80,"Armor":70,"Firepower":60,"Shot Limit":40,"Venom":60},
         palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    
     {
         name: "ARMORWING",
         species: "Armorwing",
@@ -184,8 +169,6 @@ const dragonsData = [
         stats: { "Attack":80,"Speed":50,"Armor":90,"Firepower":40,"Shot Limit":10,"Venom":40},
         palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-   
-    
     {
         name: "BARF & BELCH",
         species: "Hideous Zippleback",
@@ -195,7 +178,6 @@ const dragonsData = [
         stats: { "Attack":50,"Speed":75,"Armor":40,"Firepower":65,"Shot Limit":12,"Venom":15},
         palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-
     {
         name: "DEATH SONG",
         species: "Death Song",
@@ -223,9 +205,6 @@ const dragonsData = [
         stats: { "Attack":80,"Speed":70,"Armor":70,"Firepower":70,"Shot Limit":8,"Venom":30},
         palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-
- 
-    
     {
         name: "NIGHT TERROR",
         species: "Night Terror",
@@ -235,8 +214,6 @@ const dragonsData = [
         stats: { "Attack":40,"Speed":80,"Armor":20,"Firepower":30,"Shot Limit":4,"Venom":30},
         palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-    
-    
     {
         name: "SKRILL",
         species: "Skrill",
@@ -282,8 +259,6 @@ const dragonsData = [
         stats: { "Attack":70,"Speed":70,"Armor":70,"Firepower":50,"Shot Limit":6,"Venom":0},
         palette:["fill--pink","fill--teal","fill--magenta","fill--orange","fill--peach","fill--green"]
     },
-
-   
     {
         name: "WHISPERING DEATH",
         species: "Whispering Death",
@@ -331,29 +306,12 @@ function animateStats(duration = 900){
     });
 }
 
-// SHOP SECTION
-
-// SHOP SECTION START (Globals)
-
-// let cart = {
-//     items: [], // Array of product objects: [{ name, price, quantity, imageSrc }, ...]
-//     count: 0,
-//     total: 0.00
-// };
-
-// --- DOM Element References (Declared here, assigned in setupCartFunctionality) ---
-// ----------------------------------------------
-// GLOBAL CART STATE
-// ----------------------------------------------
 let cart = {
     count: 0,
     total: 0,
     items: []
 };
 
-// ----------------------------------------------
-// GLOBAL DOM REFERENCES (Accessible by all functions)
-// ----------------------------------------------
 const cartIcon = document.querySelector('.bx-cart');
 const cartDetailsWindow = document.getElementById('cart-details-window');
 const cartCountElement = document.getElementById('cart-count');
@@ -362,9 +320,6 @@ const cartItemsListElement = document.getElementById('cart-items-list');
 const summaryCountElement = document.getElementById('summary-count');
 const summaryTotalElement = document.getElementById('summary-total');
 
-// ----------------------------------------------
-// INITIALIZE CART FUNCTIONALITY
-// ----------------------------------------------
 function setupCartFunctionality() {
 
     if (!cartIcon || !cartDetailsWindow) {
@@ -372,7 +327,6 @@ function setupCartFunctionality() {
         return;
     }
 
-    // Add to Cart buttons
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
     addToCartButtons.forEach(button => {
@@ -382,7 +336,6 @@ function setupCartFunctionality() {
         });
     });
 
-    // Toggle cart panel on icon click
     const cartInfoContainer = cartIcon.closest('.cart-info');
     if (cartInfoContainer) {
         cartInfoContainer.addEventListener('click', toggleCartDetails);
@@ -392,9 +345,6 @@ function setupCartFunctionality() {
     renderCartItems();
 }
 
-// ----------------------------------------------
-// ADD ITEM TO CART
-// ----------------------------------------------
 function addItemToCart(buttonElement) {
     const productBox = buttonElement.closest('.box');
     if (!productBox) return;
@@ -403,11 +353,9 @@ function addItemToCart(buttonElement) {
     const price = parseFloat(productBox.querySelector('.price').textContent.replace('$', ''));
     const imageSrc = productBox.querySelector('.dragon-img')?.getAttribute('src') || '';
 
-    // Update totals
     cart.count += 1;
     cart.total += price;
-
-    // Check if item already exists
+s
     const existingItem = cart.items.find(item => item.name === name);
 
     if (existingItem) {
@@ -424,23 +372,16 @@ function addItemToCart(buttonElement) {
     updateCartDisplay();
     renderCartItems();
 
-    // Auto-open cart
     if (cartDetailsWindow && !cartDetailsWindow.classList.contains('visible')) {
         toggleCartDetails();
     }
 }
 
-// ----------------------------------------------
-// UPDATE HEADER CART DISPLAY
-// ----------------------------------------------
 function updateCartDisplay() {
     if (cartCountElement) cartCountElement.textContent = cart.count;
     if (cartTotalElement) cartTotalElement.textContent = `$${cart.total.toFixed(2)}`;
 }
 
-// ----------------------------------------------
-// RENDER CART ITEMS IN CART WINDOW
-// ----------------------------------------------
 function renderCartItems() {
     if (!cartItemsListElement) return;
 
@@ -473,14 +414,10 @@ function renderCartItems() {
 
     attachCartControlListeners();
 
-    // Update summary
     summaryCountElement.textContent = cart.count;
     summaryTotalElement.textContent = `$${cart.total.toFixed(2)}`;
 }
 
-// ----------------------------------------------
-// QUANTITY CONTROL BUTTONS
-// ----------------------------------------------
 function attachCartControlListeners() {
     document.querySelectorAll('.qty-plus').forEach(btn =>
         btn.addEventListener('click', handleQuantityChange)
@@ -491,9 +428,6 @@ function attachCartControlListeners() {
     );
 }
 
-// ----------------------------------------------
-// HANDLE + / − QUANTITY CHANGES
-// ----------------------------------------------
 function handleQuantityChange(event) {
     const button = event.currentTarget;
     const controlsDiv = button.closest('.quantity-controls');
@@ -512,7 +446,6 @@ function handleQuantityChange(event) {
             cart.count -= 1;
             cart.total -= item.price;
         } else {
-            // Remove item
             cart.count -= 1;
             cart.total -= item.price;
             cart.items.splice(index, 1);
@@ -523,9 +456,6 @@ function handleQuantityChange(event) {
     renderCartItems();
 }
 
-// ----------------------------------------------
-// TOGGLE CART WINDOW
-// ----------------------------------------------
 function toggleCartDetails() {
     cartDetailsWindow.classList.toggle('visible');
 }
@@ -533,13 +463,7 @@ function toggleCartDetails() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // I-initialize ang Cart functionality
     setupCartFunctionality();
-    
-    // Subukan simulan ang BGM pagkatapos mag-load ng lahat ng elements
     startBGM();
-
-    // Palaging magdagdag ng fallback listener para sa unang user interaction.
-    // Ito ang magsisiguro na magpe-play ang music kahit na i-block ng browser ang autoplay.
     document.body.addEventListener('click', startBGM);
 });
